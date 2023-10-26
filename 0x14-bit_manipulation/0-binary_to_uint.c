@@ -5,26 +5,22 @@
 *Return: returns converted number or 0 if the chars are not 0 and 1
 * or if b is equals to NULL.S
 */
-
-
 unsigned int binary_to_uint(const char *b)
 {
-	int i, length = strlen(b);
-	unsigned int result = 0;
-
-
-	if (b == NULL)
+int i;
+unsigned int result = 0;
+if (b == NULL)
+{
 	return (0);
+}
 
-
-	for (i = 0; i < length; i++)
+for (i = 0; b[i] != '\0'; i++)
+{
+	if (b[i] != '0' && b[i] != '1')
 	{
-	if (b[i] == '0' || b[i] == '1')
-	{
-	result = result | (b[i] - '0') << (length - 1 - i);
-	}
-	else
 	return (0);
 	}
+	result = result * 2 + (b[i] - '0');
+}
 	return (result);
 }
